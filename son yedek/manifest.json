@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "PO_Foto",
+
+  "version": "0.0.102",
+  "description": "adidas_po_yonetimi",
+  "icons": { "128": "ok.png" },
+
+
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "bookmarks",
+    "storage"
+  ],
+
+  "action": {
+    "default_title": "PO_Foto",
+    "default_icon": "ok.png"
+    /*"default_popup": "popup.html"*/
+  },
+  "host_permissions": [
+    "*://*/*"
+  ],
+
+  "content_scripts": [
+    {
+      "js": [ "c.js" ],
+      "matches": [ "https://network.infornexus.com/*" ]
+    }
+  ],
+  "background": {
+    "service_worker": "listen.js",
+    "matches": [ "<all_urls>" ]
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": [ "popup.html" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ]
+
+}
+
